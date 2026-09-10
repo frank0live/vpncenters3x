@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <title>{{ .subTitle }}</title>
     
-    <!-- آیکون مرورگر (Favicon) - آدرس لوگوی خود را اینجا بگذارید -->
-    <link rel="icon" href="logo.png" type="image/png" />
+    <!-- آیکون مرورگر (Favicon) — SVG inline; برای لوگوی اختصاصی، logo.png را قرار دهید -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%236366f1'/%3E%3Cpath d='M32 12l14 6v12c0 10-6 17-14 22-8-5-14-12-14-22V18z' fill='%23fff'/%3E%3C/svg%3E" />
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
@@ -54,7 +54,7 @@ html[data-theme="light"]{
 html,body{height:100%}
 body{
   font-family:var(--font);background:var(--bg);color:var(--text);
-  min-height:100dvh;display:flex;justify-content:center;
+  min-height:100vh;min-height:100dvh;display:flex;justify-content:center;
   overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
 /* ---------- Aurora animated background ---------- */
@@ -73,7 +73,7 @@ body{
 @keyframes aur1{to{transform:translate(-10vmax,7vmax) scale(1.18)}}
 @keyframes aur2{to{transform:translate(9vmax,-8vmax) scale(.9)}}
 @media (prefers-reduced-motion:reduce){.app-container::before,.app-container::after{animation:none}}
-.app-container{width:100%;max-width:520px;padding:16px 16px 112px;position:relative;z-index:1}
+.app-container{width:100%;max-width:520px;padding:16px 16px calc(112px + env(safe-area-inset-bottom,0px));position:relative;z-index:1}
 
 /* ---------- Header ---------- */
 .header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:4px 2px 18px}
@@ -104,11 +104,11 @@ body{
 /* ---------- Usage hero (ring + stats) ---------- */
 .usage-wrapper{display:flex;flex-direction:column;gap:16px;padding:20px 18px}
 .ring-side{display:flex;flex-direction:column;align-items:center;gap:13px}
-.ring-container{position:relative;width:168px;height:168px;filter:drop-shadow(0 0 14px var(--primary-glow))}
-.ring-container svg{transform:rotate(-90deg)}
+.ring-container{position:relative;width:168px;height:168px;display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 0 14px var(--primary-glow))}
+.ring-container svg{transform:rotate(-90deg);width:100%;height:100%;display:block}
 .progress-ring__circle{transition:stroke-dashoffset 1.2s cubic-bezier(.22,1,.36,1);stroke-linecap:round}
 .ring-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}
-.ring-percent{font-size:36px;font-weight:900;letter-spacing:-1.5px;line-height:1;
+.ring-percent{font-size:38px;font-weight:900;letter-spacing:-1.5px;line-height:1;direction:ltr;
   background:linear-gradient(135deg,var(--text),var(--text-secondary));
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .ring-label{font-size:11px;color:var(--text-tertiary);font-weight:700}
@@ -198,7 +198,7 @@ body{
 .profile-details-card{display:flex;flex-direction:column;gap:.9rem}
 
 /* ---------- Bottom nav ---------- */
-.bottom-nav{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);width:min(490px,calc(100% - 24px));
+.bottom-nav{position:fixed;bottom:calc(14px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);width:min(490px,calc(100% - 24px));
   background:var(--nav-bg);border:1px solid var(--nav-border);border-radius:22px;z-index:100;
   display:flex;justify-content:space-around;padding:9px 8px;
   backdrop-filter:blur(24px) saturate(1.5);-webkit-backdrop-filter:blur(24px) saturate(1.5);
@@ -262,7 +262,7 @@ body{
 .lang-option.selected{color:var(--primary);font-weight:800}
 
 /* ---------- Toast ---------- */
-.toast{position:fixed;bottom:104px;left:50%;transform:translateX(-50%) translateY(20px);opacity:0;
+.toast{position:fixed;bottom:calc(104px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%) translateY(20px);opacity:0;
   padding:.7rem 1.3rem;border-radius:99px;color:#fff;font-size:.82rem;font-weight:700;z-index:300;
   background:linear-gradient(135deg,var(--primary-strong),var(--primary));
   border:1px solid rgba(255,255,255,.15);box-shadow:0 8px 28px var(--primary-glow);
@@ -278,7 +278,7 @@ body{
       <header class="header">
         <div class="header-brand">
           <!-- بخش تغییر لوگو: لینک لوگوی خودتان را داخل href بگذارید -->
-          <img src="https://i.ibb.co/R57dRGh/logo.png" alt="VPN Centers Logo" class="header-logo" />
+          <img src="https://i.ibb.co/R57dRGh/logo.png" alt="VPN Centers Logo" class="header-logo" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22%236366f1%22/><path d=%22M32 12l14 6v12c0 10-6 17-14 22-8-5-14-12-14-22V18z%22 fill=%22%23fff%22/></svg>'" />
           <div class="header-info">
             <span class="header-title" id="panelTitle">پنل اشتراک</span>
             <span class="header-email" id="userEmailText"></span>
@@ -3133,7 +3133,7 @@ var qrcode = function() {
           let qr = qrcode(0, "M"); qr.addData(data); qr.make();
           qrImg.src = qr.createDataURL(6, 8);
         } catch (e) {
-          qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=280x280&margin=1&data=${encodeURIComponent(data)}`;
+          qrLoader.style.display = "none";
         }
 
         qrImg.onload = function() {

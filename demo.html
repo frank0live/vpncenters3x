@@ -55,6 +55,8 @@ html,body{height:100%}
 body{
   font-family:var(--font);background:var(--bg);color:var(--text);
   min-height:100vh;min-height:100dvh;display:flex;justify-content:center;
+  align-items:flex-start; /* FIX: without this the flex default (stretch) clamps .app-container to viewport height,
+     so its 112px bottom padding never reaches the scroll area and the expiry card ends up under the fixed nav */
   overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
 /* ---------- Aurora animated background ---------- */

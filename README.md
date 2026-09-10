@@ -14,6 +14,12 @@ Redesigned 3x-ui subscription page. This branch (`v4-aurora-glass`) is a **stand
 - Removed unused Chart.js CDN — lighter page
 - Same IDs + Go template contract → zero 3x-ui breakage (v3.3.0+)
 
+## Privacy / White-label (for resellers)
+- ❌ **Support button removed** — never links to the panel owner's Telegram
+- ❌ **Renew Subscription button removed** — no public renew flow in the page
+- ❌ `subSupportUrl` template var dropped entirely — even if set in panel settings, nothing is rendered
+- ✅ QR codes generated locally — no third-party requests
+
 ## Install
 ```bash
 cp sub.html /etc/x-ui/sub/sub.html

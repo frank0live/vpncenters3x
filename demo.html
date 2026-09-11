@@ -3136,8 +3136,36 @@ vmess://eyJhZGQiOiJkZW1vIn0=#GP-2026`,
       function closeModal() { document.getElementById("qrModal").classList.remove("show"); }
       async function copyText(text, successMsg) {
         if (!text) return showToast(t("copyFail"));
-        try { await navigator.clipboard.writeText(text); showToast(successMsg); } 
-        catch (e) { showToast(t("copyFail")); }
+        // Secure contexts (HTTPS) may use the async Clipboard API.
+        if (window.isSecureContext && navigator.clipboard && navigator.clipboard.writeText) {
+          try { await navigator.clipboard.writeText(text); return showToast(successMsg); }
+          catch (e) { /* fall through to legacy path */ }
+        }
+        // Legacy fallback: required on plain-HTTP panels (no secure context -> no navigator.clipboard).
+        try {
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "fixed";
+          ta.style.top = "0";
+          ta.style.left = "0";
+          ta.style.width = "2em";
+          ta.style.height = "2em";
+          ta.style.padding = "0";
+          ta.style.border = "none";
+          ta.style.outline = "none";
+          ta.style.boxShadow = "none";
+          ta.style.background = "transparent";
+          ta.style.opacity = "0";
+          document.body.appendChild(ta);
+          ta.focus();
+          ta.select();
+          ta.setSelectionRange(0, ta.value.length);
+          let ok = false;
+          try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+          document.body.removeChild(ta);
+          showToast(ok ? successMsg : t("copyFail"));
+        } catch (e) { showToast(t("copyFail")); }
       }
 
       function setProgressRing(percent, color) {

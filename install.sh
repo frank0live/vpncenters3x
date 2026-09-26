@@ -2,7 +2,7 @@
 
 INSTALL_DIR="/etc/x-ui/sub"
 INSTALL_FILE="$INSTALL_DIR/sub.html"
-SOURCE_URL="https://raw.githubusercontent.com/folive27/vpncenters3x/main/sub.html"
+SOURCE_URL="https://raw.githubusercontent.com/frank0live/vpncenters3x/main/sub.html"
 
 echo "Installing / Updating vpncenters3x..."
 

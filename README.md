@@ -25,7 +25,7 @@
 برای نصب یا آپدیت به آخرین نسخه vpncenters3x، دستور زیر را در ترمینال سرور خود اجرا کنید:
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/folive27/vpncenters3x/refs/heads/main/install.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/frank0live/vpncenters3x/refs/heads/main/install.sh)
 ```
 
 </details>
@@ -60,7 +60,7 @@ Modern, app-like, and highly responsive subscription page for **3x-ui v3.3.0+**.
 To install or update to the latest version of vpncenters3x, run the following command in your server's terminal:
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/folive27/vpncenters3x/refs/heads/main/install.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/frank0live/vpncenters3x/refs/heads/main/install.sh)
 ```
 
 </details>
@@ -95,7 +95,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/folive27/vpncenters3x/refs/h
 Чтобы установить или обновить vpncenters3x до последней версии, выполните следующую команду в терминале вашего сервера:
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/folive27/vpncenters3x/refs/heads/main/install.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/frank0live/vpncenters3x/refs/heads/main/install.sh)
 ```
 
 </details>
@@ -130,7 +130,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/folive27/vpncenters3x/refs/h
 在您的服务器终端中运行以下命令，即可安装或升级至最新版 vpncenters3x：
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/folive27/vpncenters3x/refs/heads/main/install.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/frank0live/vpncenters3x/refs/heads/main/install.sh)
 ```
 
 </details>
